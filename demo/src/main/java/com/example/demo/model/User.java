@@ -26,6 +26,10 @@ public class User {
   
   private String tier;
 
+  public User(){
+
+  }
+
   public User(String username, String email_id, String password, String confirm_password, Integer order_count, Integer discount, String tier){
     this.username=username;
     this.email_id=email_id;

@@ -1,11 +1,10 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -71,11 +70,11 @@ public class UserService {
 
   public ResponseEntity getUserByEmail(@PathVariable String username){
     Optional<User> user = this.userRepository.findByUsername(username);
-    if(user.isPresent()){
+    if(Objects.nonNull(user) && user.isPresent()){
       UpdateUser(user);
       return ResponseEntity.ok(user.get());
     }else{
-      return ResponseEntity.ok("The user: " + username + " doesn't exists.");
+      return ResponseEntity.ok("The user " + username + " doesn't exists.");
     }
   }
 

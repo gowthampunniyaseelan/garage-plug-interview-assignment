@@ -32,22 +32,22 @@ public class UserServiceTest {
   }
 
   @Test
-  public void testGetUserByEmail(){
+  public void testGetUserByUsername(){
     Optional<User> user = createNewUser();
     Mockito.when(userRepository.findByUsername(Mockito.anyString())).thenReturn(user);
-    ResponseEntity response = userService.getUserByEmail("gowtham");
+    ResponseEntity response = userService.getUserByUsername("gowtham");
     assertEquals(HttpStatus.OK,response.getStatusCode());
   }
 
   @Test
-  public void testGetUserByEmailNull(){
+  public void testGetUserByUsernameNull(){
     Mockito.when(userRepository.findByUsername(Mockito.anyString())).thenReturn(null);
-    ResponseEntity response = userService.getUserByEmail("goeetam");
+    ResponseEntity response = userService.getUserByUsername("gowtham");
     assertEquals(HttpStatus.OK,response.getStatusCode());
   }
 
   private Optional<User> createNewUser(){
-    User user = new User("goeetam","abc.@gmail.com","abc","abc",8,10,"gold");
+    User user = new User("gowtham","abc.@gmail.com","abc","abc",8,10,"gold");
     return Optional.of(user);
   }
   

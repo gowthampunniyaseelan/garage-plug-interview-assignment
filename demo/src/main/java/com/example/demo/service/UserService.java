@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -19,10 +18,6 @@ public class UserService {
 
   public UserService(UserRepository userRepository){
     this.userRepository = userRepository;
-  }
-
-  public ResponseEntity<List<User>> getUser(){
-    return ResponseEntity.ok(this.userRepository.findAll());
   }
   
   public ResponseEntity<User> createUser(@RequestBody User user){
@@ -68,7 +63,7 @@ public class UserService {
     User result = this.userRepository.save(updateOrderDiscountTier);
   }
 
-  public ResponseEntity getUserByEmail(@PathVariable String username){
+  public ResponseEntity getUserByUsername(@PathVariable String username){
     Optional<User> user = this.userRepository.findByUsername(username);
     if(Objects.nonNull(user) && user.isPresent()){
       UpdateUser(user);

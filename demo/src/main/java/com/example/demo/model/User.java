@@ -24,18 +24,23 @@ public class User {
   
   private String tier;
 
-  public User(){
-
-  }
 
   public User(String username, String email_id, String password, String confirm_password, Integer order_count, Integer discount, String tier){
     this.username=username;
     this.email_id=email_id;
     this.password=password;
     this.confirm_password=confirm_password;
-    this.order_count = order_count;
-    this.discount = discount;
-    this.tier = tier;
+    if(order_count == null){
+      this.order_count = 0;
+    }else{
+      this.order_count = order_count;
+    }
+    if(discount == null){
+      this.discount = 0;
+    }else{
+      this.discount = discount;
+    }
+    this.tier = "regular";
   }
   
   // Get Method

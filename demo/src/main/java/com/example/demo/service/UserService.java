@@ -30,33 +30,33 @@ public class UserService {
 
   public void UpdateUser(Optional<User> user){
     User updateOrderDiscountTier = user.get();
-    Integer discount = updateOrderDiscountTier.getDiscount();
-    Integer order_count = updateOrderDiscountTier.getOrderCount();
+    Integer discountPercentage = updateOrderDiscountTier.getDiscount();
+    Integer orderCount = updateOrderDiscountTier.getOrderCount();
     String tier = updateOrderDiscountTier.getTier();
 
-    order_count = order_count + 1;
+    orderCount = orderCount + 1;
     
-    if(order_count == 9){
+    if(orderCount == 9){
       sendMail("You have placed 9 orders with us. Buy one more stuff and you will be promoted to Gold customer and enjoy 10% discounts!");
     }
 
-    if(order_count == 19){
+    if(orderCount == 19){
       sendMail("You have placed 19 orders with us. Buy one more stuff and you will be promoted to Platinum customer and enjoy 20% discounts!");
     }
 
-    if(order_count == 10 || order_count > 10){
-      if(order_count < 20){
+    if(orderCount == 10 || orderCount > 10){
+      if(orderCount < 20){
         tier = "gold";
-        discount = discount + 10;
+        discountPercentage = discountPercentage + 10;
       }
     }
-    if(order_count == 20 || order_count > 20){
+    if(orderCount == 20 || orderCount > 20){
       tier = "platinum";
-      discount = discount + 20;
+      discountPercentage = discountPercentage + 20;
     }
 
-    updateOrderDiscountTier.setDiscount(discount);
-    updateOrderDiscountTier.setOrderCount(order_count);
+    updateOrderDiscountTier.setDiscount(discountPercentage);
+    updateOrderDiscountTier.setOrderCount(orderCount);
     updateOrderDiscountTier.setTier(tier);
 
 

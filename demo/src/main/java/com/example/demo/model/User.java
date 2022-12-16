@@ -12,33 +12,33 @@ public class User {
 
   private String username;
  
-  private String email_id;
+  private String emailId;
 
   private String password;
 
-  private String confirm_password;
+  private String confirmPassword;
   
-  private Integer order_count;
+  private Integer orderCount;
 
-  private Integer discount;
+  private Integer discountPercentage;
   
   private String tier;
 
 
-  public User(String username, String email_id, String password, String confirm_password, Integer order_count, Integer discount, String tier){
+  public User(String username, String emailId, String password, String confirmPassword, Integer orderCount, Integer discountPercentage, String tier){
     this.username=username;
-    this.email_id=email_id;
+    this.emailId=emailId;
     this.password=password;
-    this.confirm_password=confirm_password;
-    if(order_count == null){
-      this.order_count = 0;
+    this.confirmPassword = confirmPassword;
+    if(orderCount == null){
+      this.orderCount = 0;
     }else{
-      this.order_count = order_count;
+      this.orderCount = orderCount;
     }
-    if(discount == null){
-      this.discount = 0;
+    if(discountPercentage == null){
+      this.discountPercentage = 0;
     }else{
-      this.discount = discount;
+      this.discountPercentage = discountPercentage;
     }
     this.tier = "regular";
   }
@@ -49,15 +49,15 @@ public class User {
   }
 
   public String getEmailId(){
-    return this.email_id;
+    return this.emailId;
   }
 
   public Integer getOrderCount(){
-    return this.order_count;
+    return this.orderCount;
   }
 
   public Integer getDiscount(){
-    return this.discount;
+    return this.discountPercentage;
   }
   
   public String getTier(){
@@ -70,16 +70,16 @@ public class User {
     this.username = username;
   }
 
-  public void setEmailId(String email_id){
-    this.email_id = email_id;
+  public void setEmailId(String emailId){
+    this.emailId = emailId;
   }
 
-  public void setOrderCount(Integer order_count){
-   this.order_count = order_count;
+  public void setOrderCount(Integer orderCount){
+   this.orderCount = orderCount;
   }
   
-  public void setDiscount(Integer discount){
-    this.discount = discount;
+  public void setDiscount(Integer discountPercentage){
+    this.discountPercentage = discountPercentage;
    }
 
    public void setTier(String tier){
